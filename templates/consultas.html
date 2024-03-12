@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>Listar todos los post {{ posts|length }}</h3>
+  <ul>
+    {% for post in posts %}
+    <li>{{post.titulo}}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'Consulta' %}"></a>
+
+  <h3>Listar por filtro</h3>
+  <ul>
+    {% for post in filtro %}
+    <li>{{post.titulo}}</li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>

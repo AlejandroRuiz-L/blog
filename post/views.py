@@ -41,3 +41,9 @@ def eliminar(request,id):
   post = Post.objects.get(id=id)
   post.delete()
   return HttpResponse ("Registro Eliminado")
+
+def consultas(request):
+  posts = Post.objects.all()
+  filtro = Post.objects.filter(title='cuerpo')
+  return render(request, 'consultas.html', {'posts':posts, 'filtro':filtro})
+  
