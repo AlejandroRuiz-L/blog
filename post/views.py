@@ -44,6 +44,9 @@ def eliminar(request,id):
 
 def consultas(request):
   posts = Post.objects.all()
-  filtro = Post.objects.filter(title='cuerpo')
-  return render(request, 'consultas.html', {'posts':posts, 'filtro':filtro})
+  filtro = Post.objects.filter(titulo='Adso')
+  post = Post.objects.get(id=12)
+  limit = Post.objects.all()[:20]
+
+  return render(request, 'consultas.html', {'posts':posts, 'filtro':filtro, 'post':post, 'limit':limit})
   
