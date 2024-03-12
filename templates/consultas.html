@@ -26,6 +26,20 @@
 
   <h3>Consultar unico registro</h3>
   {{post.fecha}} - {{post.titulo}}
+
+  <h3>consultar por orden {{ order|length }}</h3>
+  <ul>
+    {% for post in order %}
+    <li>{{post.cuerpo}}</li>
+    {% endfor %}
+  </ul>
+
+  <h3>id menor {{minor|length}}</h3>
+  <ul>
+    {% for post in minor %}
+    <li>{{ post.id }}</li>
+    {% endfor %}
+  </ul>
 </body>
 
 </html>

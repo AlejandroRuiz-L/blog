@@ -43,10 +43,12 @@ def eliminar(request,id):
   return HttpResponse ("Registro Eliminado")
 
 def consultas(request):
-  posts = Post.objects.all()
+  posts = Post.objects.all()[:5]
   filtro = Post.objects.filter(titulo='Adso')
   post = Post.objects.get(id=12)
   limit = Post.objects.all()[:20]
+  order = Post.objects.all().order_by('cuerpo')[:7]
+  minor = Post.objects.filter(id__lte=20)
 
-  return render(request, 'consultas.html', {'posts':posts, 'filtro':filtro, 'post':post, 'limit':limit})
+  return render(request, 'consultas.html', {'posts':posts, 'filtro':filtro, 'post':post, 'limit':limit, 'order':order, 'minor':minor})
   
